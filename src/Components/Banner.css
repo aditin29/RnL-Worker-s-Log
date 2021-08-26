@@ -1,0 +1,23 @@
+.banner {
+  height: 100vh;
+  background-color: #1c243a;
+  width: 100vw;
+}
+
+.banner__content {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px;
+  margin-top: 100px;
+  align-items: center;
+}
+
+.banner__img {
+  margin-right: 50px;
+}
+
+.banner__content > h2 {
+  color: white;
+  font-size: 80px;
+  margin-left: 50px;
+}

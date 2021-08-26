@@ -1,0 +1,53 @@
+.cw {
+  display: flex;
+  flex-direction: row;
+}
+
+.profile__back {
+  color: #1c243a;
+  background-color: white;
+  /* color: white; */
+  border-radius: 50px;
+  margin-left: -40px;
+  margin-right: 40px;
+  align-self: flex-start;
+  margin-top: 80px;
+  font-size: large;
+}
+
+.profile__back:hover {
+  cursor: pointer;
+}
+
+.cw__container {
+  margin-top: -10px;
+}
+
+.profile__lcontent,
+.profile__rcontent {
+  padding: 2%;
+  margin: 2%;
+  width: 50%;
+}
+
+.profile__rcontent {
+  overflow-y: scroll;
+}
+
+.profile__lcontent > h2,
+.profile__rcontent > h2 {
+  margin-bottom: 20px;
+  color: #1c243a;
+}
+
+.profile__lcontent > h3,
+.profile__rcontent > h3 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.profile__lcontent > p,
+.profile__rcontent > p {
+  margin-bottom: 15px;
+  font-size: 16px;
+}

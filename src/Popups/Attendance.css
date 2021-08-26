@@ -1,0 +1,24 @@
+.att__content {
+  padding: 2%;
+  margin: 2%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.att__content > h2 {
+  margin-bottom: 70px;
+  color: #1c243a;
+  align-self: center;
+  font-size: 30px;
+}
+
+.att__content > h3 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.att__content > p {
+  margin-bottom: 15px;
+  font-size: 16px;
+}
