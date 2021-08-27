@@ -1,6 +1,6 @@
 //import axios from 'axios';
 import { ADMIN_LOADED, AUTH_ERROR, LOGIN_FAIL, LOGIN_SUCCESS, LOGOUT } from './types';
-import setAuthToken from '../utils/setAuthToken';
+//import setAuthToken from '../utils/setAuthToken';
 import api from '../utils/api'
 
 //load admin
@@ -45,7 +45,7 @@ export const login = (Name, Password) => async dispatch => {
     } catch(err) {
         const errors = err.response.data.errors;
         let errMsg = '';
-        errors.forEach(error => errMsg = (error.msg));
+        errors?.forEach(error => errMsg = (error.msg));
         dispatch({
             type: LOGIN_FAIL,
             errMsg: errMsg
