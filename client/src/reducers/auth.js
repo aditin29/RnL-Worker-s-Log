@@ -25,18 +25,17 @@ export default function authentication(state = initialState, action) {
         
         case AUTH_ERROR:
         case LOGIN_FAIL:
-        case LOGOUT:
-            localStorage.removeItem('token');
+        case LOGOUT:            
             return {
                 ...state,
                 token: null,
                 isAuthenticated: false,
-                laoding: false,
+                loading: false,
+                admin: null,
                 error: errMsg
             };
         
-        case LOGIN_SUCCESS: 
-            localStorage.setItem('token', payload.token);
+        case LOGIN_SUCCESS:             
             return {
                 ...state,
                 ...payload,

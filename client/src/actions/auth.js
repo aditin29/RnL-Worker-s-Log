@@ -1,15 +1,16 @@
-import axios from 'axios';
+//import axios from 'axios';
 import { ADMIN_LOADED, AUTH_ERROR, LOGIN_FAIL, LOGIN_SUCCESS, LOGOUT } from './types';
 import setAuthToken from '../utils/setAuthToken';
+import api from '../utils/api'
 
 //load admin
 export const loadAdmin = () => async dispatch => {
-    if(localStorage.token) {
-        setAuthToken(localStorage.token);
-    }
+    // if(localStorage.token) {
+    //     setAuthToken(localStorage.token);
+    // }
 
     try {
-        const res = await axios.get('http://localhost:5000/auth');
+        const res = await api.get('/auth');
 
         dispatch({
             type: ADMIN_LOADED,
@@ -24,18 +25,16 @@ export const loadAdmin = () => async dispatch => {
 
 //login admin
 export const login = (Name, Password) => async dispatch => {
-    const config = {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    };
+    // const config = {
+    //     headers: {
+    //         'Content-Type': 'application/json'
+    //     }
+    // };
 
-    const body = JSON.stringify(
-        {Name, Password}
-    );
+    const body = {Name, Password};
 
     try {
-        const res = await axios.post('http://localhost:5000/auth/adminLogin', body, config);
+        const res = await api.post('auth/adminLogin', body);
         dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data

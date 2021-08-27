@@ -1,7 +1,8 @@
 import React, {useState, useRef} from 'react';
 import CloseIcon from '@material-ui/icons/Close';
-import axios from 'axios';
+//import axios from 'axios';
 import Alert from '@material-ui/lab/Alert';
+import api from '../utils/api'
 
 function Advance({setTrig, worker}) {
 
@@ -30,7 +31,7 @@ function Advance({setTrig, worker}) {
 
         let id = worker._id;
 
-        await axios.post(`http://localhost:5000/users/update${advMonth}Adv/${id}`, AdvanceAmt)
+        await api.post(`/users/update${advMonth}Adv/${id}`, AdvanceAmt)
                 .then(setErrAlert(false), setAlert(true))
                 .catch(err => {setError(err); setErrAlert(true);})
     } 

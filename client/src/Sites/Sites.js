@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import Navbar from '../Components/Navbar';
 import Alert from '@material-ui/lab/Alert';
-import axios from 'axios';
+//import axios from 'axios';
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import api from '../utils/api'
 
 function Sites() {
 
@@ -29,7 +30,7 @@ function Sites() {
         async function getData(){
 
                        
-            await axios.get("http://localhost:5000/sites")
+            await api.get("/sites")
                 .then(res => setSites(res.data))
                 .catch(err => console.log(err))
         }
@@ -53,7 +54,7 @@ function Sites() {
             siteName: siteName
         }
 
-        await axios.post("http://localhost:5000/sites/addSite", site)
+        await api.post("/sites/addSite", site)
                 .then(res => {setErrAlert(false); setAddSuccess(true);})
                 .catch(err => {setError(err); setErrAlert(true);})
 
@@ -70,7 +71,7 @@ function Sites() {
 
         console.log(deleteSiteVal)
 
-        await axios.delete("http://localhost:5000/sites/deleteSite", site)
+        await api.delete("/sites/deleteSite", site)
                 .then(res => {setDelFail(false); setDelSuccess(true);})
                 .catch(err => {setDelErr(err); setDelFail(true);})
 

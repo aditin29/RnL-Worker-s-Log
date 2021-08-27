@@ -1,9 +1,10 @@
 import React, { useRef, useState, useEffect } from 'react';
 import Navbar from '../Components/Navbar';
 import './CreateWorker.css';
-import axios from 'axios';
+//import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import Alert from '@material-ui/lab/Alert';
+import api from '../utils/api'
 
 function CreateWorker() {
 
@@ -13,7 +14,7 @@ function CreateWorker() {
 
     useEffect(() => {
         async function getSites(){
-            await axios.get("http://localhost:5000/sites")
+            await api.get("/sites")
                 .then(res => setSites(res.data))
                 .catch(err => console.log(err))
         }
@@ -80,7 +81,7 @@ function CreateWorker() {
 
         try {
             setErrAlert(false);
-            await axios.post("http://localhost:5000/users/add", userData);
+            await api.post("/users/add", userData);
             
             history.push('/workers');
         

@@ -1,8 +1,9 @@
 import React, {useState, useRef} from 'react';
 import CloseIcon from '@material-ui/icons/Close';
 import "./Attendance.css";
-import axios from 'axios';
+//import axios from 'axios';
 import Alert from '@material-ui/lab/Alert';
+import api from '../utils/api'
 
 function Attendance({setTrig, worker}) {
   
@@ -132,7 +133,7 @@ function Attendance({setTrig, worker}) {
         console.log(reportData);
         let id = worker._id;
 
-        await axios.post(`http://localhost:5000/users/update${month}Report/${id}`, reportData)
+        await api.post(`/users/update${month}Report/${id}`, reportData)
                 .then(setErrAlert(false), setAddSuccess(true))
                 .catch(err => {setError(err); setErrAlert(true);})
     } 

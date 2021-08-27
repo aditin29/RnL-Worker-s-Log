@@ -2,7 +2,8 @@ import React, {useEffect, useState} from 'react';
 import Navbar from '../Components/Navbar';
 import './MonthlyReport.css';
 import ReactToExcel from 'react-html-table-to-excel';
-import axios from 'axios';
+//import axios from 'axios';
+import api from '../utils/api'
 
 
 function MonthlyReport() {
@@ -54,12 +55,12 @@ function MonthlyReport() {
        
         async function getData() {
 
-            await axios.get("http://localhost:5000/sites")
+            await api.get("/sites")
                     .then(res => setSites(res.data))
                     .catch(err => console.log(err))
 
             if(sortSiteVal === "All"){
-                await axios.get("http://localhost:5000/users/siteSortAlpha")
+                await api.get("/users/siteSortAlpha")
                     .then(res => {setWorkers(res.data)})
                     .catch(err => {console.log(err)})
             } else {
@@ -67,7 +68,7 @@ function MonthlyReport() {
                 const siteVal = {
                     site: sortSiteVal
                 }
-                await axios.post(`http://localhost:5000/users/siteSort${month}`, siteVal)
+                await api.post(`/users/siteSort${month}`, siteVal)
                     .then(res => {setWorkers(res.data)})
                     .catch(err => {console.log(err)})
             }
@@ -78,7 +79,7 @@ function MonthlyReport() {
             
             setMonth(x);
     
-            await axios.get(`http://localhost:5000/users/${month}Report`)
+            await api.get(`/users/${month}Report`)
                         .then(res => setReport(res.data) )
                         .catch(err => console.log(err))
         }
@@ -108,7 +109,7 @@ function MonthlyReport() {
         workers.map(worker => {
             let Id = worker._id;
             
-            return(axios.post(`http://localhost:5000/users/reset${mon}/${Id}`)
+            return(api.post(`/users/reset${mon}/${Id}`)
             .then(res => {console.log(res.data)})
             .catch(err => {console.log(err)}))
         })

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Navbar from '../Components/Navbar';
 import './Workers.css';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+//import axios from 'axios';
 import Profile from '../Popups/Profile';
 import Attendance from '../Popups/Attendance';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -10,6 +10,7 @@ import Advance from '../Popups/Advance';
 import CreateIcon from '@material-ui/icons/Create';
 import EditProfile from '../Popups/EditProfile';
 import EditDetails from '../Popups/EditDetails';
+import api from '../utils/api'
 
 function Workers() {
 
@@ -33,7 +34,7 @@ function Workers() {
         async function getData(){
 
             if(sortSiteVal === "All"){
-                await axios.get("http://localhost:5000/users/siteSortAlpha")
+                await api.get("/users/siteSortAlpha")
                     .then(res => {setWorkers(res.data)})
                     .catch(err => {console.log(err)})
             } else {
@@ -41,13 +42,13 @@ function Workers() {
                 const siteVal = {
                     site: sortSiteVal
                 }
-                await axios.post("http://localhost:5000/users/siteSort", siteVal)
+                await api.post("/users/siteSort", siteVal)
                     .then(res => {setWorkers(res.data)})
                     .catch(err => {console.log(err)})
             }
             
             
-            await axios.get("http://localhost:5000/sites")
+            await api.get("/sites")
                 .then(res => setSites(res.data))
                 .catch(err => console.log(err))
         }
