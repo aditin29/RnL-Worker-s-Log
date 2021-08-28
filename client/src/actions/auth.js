@@ -1,7 +1,7 @@
-//import axios from 'axios';
+import axios from 'axios';
 import { ADMIN_LOADED, AUTH_ERROR, LOGIN_FAIL, LOGIN_SUCCESS, LOGOUT } from './types';
 //import setAuthToken from '../utils/setAuthToken';
-import api from '../utils/api'
+//import api from '../utils/api'
 
 //load admin
 export const loadAdmin = () => async dispatch => {
@@ -10,7 +10,7 @@ export const loadAdmin = () => async dispatch => {
     // }
 
     try {
-        const res = await api.get('/auth');
+        const res = await axios.get('/auth');
 
         dispatch({
             type: ADMIN_LOADED,
@@ -34,7 +34,7 @@ export const login = (Name, Password) => async dispatch => {
     const body = {Name, Password};
 
     try {
-        const res = await api.post('/auth/adminLogin', body);
+        const res = await axios.post('/auth/adminLogin', body);
         dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data
