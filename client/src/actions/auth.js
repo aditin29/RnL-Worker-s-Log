@@ -10,7 +10,7 @@ export const loadAdmin = () => async dispatch => {
     // }
 
     try {
-        const res = await axios.get('/auth');
+        const res = await axios.get(`${process.env.REACT_APP_BASEURL}/auth`);
 
         dispatch({
             type: ADMIN_LOADED,
@@ -34,7 +34,7 @@ export const login = (Name, Password) => async dispatch => {
     const body = {Name, Password};
 
     try {
-        const res = await axios.post('/auth/adminLogin', body);
+        const res = await axios.post(`${process.env.REACT_APP_BASEURL}/auth/adminLogin`, body);
         dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data

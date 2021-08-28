@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import Navbar from '../Components/Navbar';
 import Alert from '@material-ui/lab/Alert';
-//import axios from 'axios';
+import axios from 'axios';
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import api from '../utils/api'
+//import api from '../utils/api'
 
 function Sites() {
 
@@ -30,7 +30,7 @@ function Sites() {
         async function getData(){
 
                        
-            await api.get("/sites")
+            await axios.get(`${process.env.REACT_APP_BASEURL}/sites`)
                 .then(res => setSites(res.data))
                 .catch(err => console.log(err))
         }
@@ -54,7 +54,7 @@ function Sites() {
             siteName: siteName
         }
 
-        await api.post("/sites/addSite", site)
+        await axios.post(`${process.env.REACT_APP_BASEURL}/sites/addSite`, site)
                 .then(res => {setErrAlert(false); setAddSuccess(true);})
                 .catch(err => {setError(err); setErrAlert(true);})
 
@@ -71,7 +71,7 @@ function Sites() {
 
         console.log(deleteSiteVal)
 
-        await api.delete("/sites/deleteSite", site)
+        await axios.delete(`${process.env.REACT_APP_BASEURL}/sites/deleteSite`, site)
                 .then(res => {setDelFail(false); setDelSuccess(true);})
                 .catch(err => {setDelErr(err); setDelFail(true);})
 

@@ -1,8 +1,8 @@
 import React, {useState, useRef, useEffect} from 'react';
 import CloseIcon from '@material-ui/icons/Close';
-//import axios from 'axios';
+import axios from 'axios';
 import Alert from '@material-ui/lab/Alert';
-import api from '../utils/api'
+//import api from '../utils/api'
 
 function EditDetails({setTrig, worker, editDetails}) {
 
@@ -13,7 +13,7 @@ function EditDetails({setTrig, worker, editDetails}) {
 
     useEffect(() => {
         async function getSites(){
-            await api.get("/sites")
+            await axios.get(`${process.env.REACT_APP_BASEURL}/sites`)
                 .then(res => setSites(res.data))
                 .catch(err => console.log(err))
         }
@@ -48,7 +48,7 @@ function EditDetails({setTrig, worker, editDetails}) {
 
         }
 
-        await api.post(`/users/updatePdetails/${id}`, userPdata)
+        await axios.post(`${process.env.REACT_APP_BASEURL}/users/updatePdetails/${id}`, userPdata)
                 .then(setErrAlert(false), setAddSuccess(true))
                 .catch(err => {setError(err); setErrAlert(true)})
     }
@@ -84,7 +84,7 @@ function EditDetails({setTrig, worker, editDetails}) {
 
         }
 
-        await api.post(`/users/updateBdetails/${id}`, userBdata)
+        await axios.post(`${process.env.REACT_APP_BASEURL}/users/updateBdetails/${id}`, userBdata)
                     .then(setErrAlert(false), setAddSuccess(true))
                     .catch(err => {setError(err); setErrAlert(true)})
     }

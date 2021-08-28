@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Navbar from '../Components/Navbar';
 import './Workers.css';
 import { Link } from 'react-router-dom';
-//import axios from 'axios';
+import axios from 'axios';
 import Profile from '../Popups/Profile';
 import Attendance from '../Popups/Attendance';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -10,7 +10,7 @@ import Advance from '../Popups/Advance';
 import CreateIcon from '@material-ui/icons/Create';
 import EditProfile from '../Popups/EditProfile';
 import EditDetails from '../Popups/EditDetails';
-import api from '../utils/api'
+//import api from '../utils/api'
 
 function Workers() {
 
@@ -34,7 +34,7 @@ function Workers() {
         async function getData(){
 
             if(sortSiteVal === "All"){
-                await api.get("/users/siteSortAlpha")
+                await axios.get(`${process.env.REACT_APP_BASEURL}/users/siteSortAlpha`)
                     .then(res => {setWorkers(res.data)})
                     .catch(err => {console.log(err)})
             } else {
@@ -42,13 +42,13 @@ function Workers() {
                 const siteVal = {
                     site: sortSiteVal
                 }
-                await api.post("/users/siteSort", siteVal)
+                await axios.post(`${process.env.REACT_APP_BASEURL}/users/siteSort`, siteVal)
                     .then(res => {setWorkers(res.data)})
                     .catch(err => {console.log(err)})
             }
             
             
-            await api.get("/sites")
+            await axios.get(`${process.env.REACT_APP_BASEURL}/sites`)
                 .then(res => setSites(res.data))
                 .catch(err => console.log(err))
         }

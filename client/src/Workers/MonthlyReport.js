@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react';
 import Navbar from '../Components/Navbar';
 import './MonthlyReport.css';
 import ReactToExcel from 'react-html-table-to-excel';
-//import axios from 'axios';
-import api from '../utils/api'
+import axios from 'axios';
+//import api from '../utils/api'
 
 
 function MonthlyReport() {
@@ -55,12 +55,12 @@ function MonthlyReport() {
        
         async function getData() {
 
-            await api.get("/sites")
+            await axios.get(`${process.env.REACT_APP_BASEURL}/sites`)
                     .then(res => setSites(res.data))
                     .catch(err => console.log(err))
 
             if(sortSiteVal === "All"){
-                await api.get("/users/siteSortAlpha")
+                await axios.get(`${process.env.REACT_APP_BASEURL}/users/siteSortAlpha`)
                     .then(res => {setWorkers(res.data)})
                     .catch(err => {console.log(err)})
             } else {
@@ -68,7 +68,7 @@ function MonthlyReport() {
                 const siteVal = {
                     site: sortSiteVal
                 }
-                await api.post(`/users/siteSort${month}`, siteVal)
+                await axios.post(`${process.env.REACT_APP_BASEURL}/users/siteSort${month}`, siteVal)
                     .then(res => {setWorkers(res.data)})
                     .catch(err => {console.log(err)})
             }
@@ -79,7 +79,7 @@ function MonthlyReport() {
             
             setMonth(x);
     
-            await api.get(`/users/${month}Report`)
+            await axios.get(`${process.env.REACT_APP_BASEURL}/users/${month}Report`)
                         .then(res => setReport(res.data) )
                         .catch(err => console.log(err))
         }
@@ -109,7 +109,7 @@ function MonthlyReport() {
         workers.map(worker => {
             let Id = worker._id;
             
-            return(api.post(`/users/reset${mon}/${Id}`)
+            return(axios.post(`${process.env.REACT_APP_BASEURL}/users/reset${mon}/${Id}`)
             .then(res => {console.log(res.data)})
             .catch(err => {console.log(err)}))
         })
