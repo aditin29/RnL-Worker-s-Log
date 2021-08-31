@@ -10,7 +10,7 @@ export const loadAdmin = () => async dispatch => {
     }
 
     try {
-        const res = await axios.get("https://rnlworkerslog.herokuapp.com/auth");
+        const res = await axios.get("/auth");
 
         dispatch({
             type: ADMIN_LOADED,
@@ -34,7 +34,7 @@ export const login = (Name, Password) => async dispatch => {
     const body = {Name, Password};
 
     try {
-        const res = await axios.post("https://rnlworkerslog.herokuapp.com/auth/adminLogin", body, config);
+        const res = await axios.post("/auth/adminLogin", body, config);
         dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data
