@@ -31,7 +31,7 @@ function Advance({setTrig, worker}) {
 
         let id = worker._id;
 
-        await axios.post(`${process.env.REACT_APP_BASEURL}/users/update${advMonth}Adv/${id}`, AdvanceAmt)
+        await axios.post(`https://rnlworkerslog.herokuapp.com/users/update${advMonth}Adv/${id}`, AdvanceAmt)
                 .then(setErrAlert(false), setAlert(true))
                 .catch(err => {setError(err); setErrAlert(true);})
     } 

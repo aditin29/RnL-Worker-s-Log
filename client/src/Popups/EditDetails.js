@@ -13,7 +13,7 @@ function EditDetails({setTrig, worker, editDetails}) {
 
     useEffect(() => {
         async function getSites(){
-            await axios.get(`${process.env.REACT_APP_BASEURL}/sites`)
+            await axios.get("https://rnlworkerslog.herokuapp.com/sites")
                 .then(res => setSites(res.data))
                 .catch(err => console.log(err))
         }
@@ -48,7 +48,7 @@ function EditDetails({setTrig, worker, editDetails}) {
 
         }
 
-        await axios.post(`${process.env.REACT_APP_BASEURL}/users/updatePdetails/${id}`, userPdata)
+        await axios.post(`https://rnlworkerslog.herokuapp.com/users/updatePdetails/${id}`, userPdata)
                 .then(setErrAlert(false), setAddSuccess(true))
                 .catch(err => {setError(err); setErrAlert(true)})
     }
@@ -84,7 +84,7 @@ function EditDetails({setTrig, worker, editDetails}) {
 
         }
 
-        await axios.post(`${process.env.REACT_APP_BASEURL}/users/updateBdetails/${id}`, userBdata)
+        await axios.post(`https://rnlworkerslog.herokuapp.com/users/updateBdetails/${id}`, userBdata)
                     .then(setErrAlert(false), setAddSuccess(true))
                     .catch(err => {setError(err); setErrAlert(true)})
     }
