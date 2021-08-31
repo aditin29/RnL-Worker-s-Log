@@ -10,9 +10,9 @@ require('dotenv').config();
 
 
 
-router.get('/', async (req, res) => {
+router.get('/', auth, async (req, res) => {
     try{
-        const admin = await Admin.find({Name: req.admin.Name}).select('-Password');
+        const admin = await Admin.find({Name: req.Name}).select('-Password');
         res.json(admin);
     }catch(err) {
         console.error(err.message);
@@ -51,10 +51,11 @@ router.post('/adminLogin',
 
 
             const payload = {
-                admin: {
-                    Name: admin.Name
-                }
+                
+                Name: admin.Name
+                
             };
+            console.log("msg: ", admin);
 
             const jwtsecret = process.env.JWT_SECRET;
 

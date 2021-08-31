@@ -29,6 +29,7 @@ function Login({login, isAuthenticated, errMsg}) {
 
     function handleLogin(e) {
         e.preventDefault();
+        
         login(name, pass);
         
     }

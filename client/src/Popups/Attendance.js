@@ -133,7 +133,7 @@ function Attendance({setTrig, worker}) {
         console.log(reportData);
         let id = worker._id;
 
-        await axios.post(`https://rnlworkerslog.herokuapp.com/users/update${month}Report/${id}`, reportData)
+        await axios.post(`/users/update${month}Report/${id}`, reportData)
                 .then(setErrAlert(false), setAddSuccess(true))
                 .catch(err => {setError(err); setErrAlert(true);})
     } 

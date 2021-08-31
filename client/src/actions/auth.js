@@ -7,11 +7,12 @@ import setAuthToken from '../utils/setAuthToken';
 export const loadAdmin = () => async dispatch => {
     if(localStorage.token) {
         setAuthToken(localStorage.token);
+        //console.log("token: ", localStorage.token);
     }
 
     try {
-        const res = await axios.get("/auth");
-
+        const res = await axios.get("/auth/");
+        console.log(res.data)
         dispatch({
             type: ADMIN_LOADED,
             payload: res.data
@@ -30,11 +31,14 @@ export const login = (Name, Password) => async dispatch => {
             'Content-Type': 'application/json'
         }
     };
+  
 
     const body = {Name, Password};
+    //console.log(body);
 
     try {
         const res = await axios.post("/auth/adminLogin", body, config);
+        //console.log(res.data);
         dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data

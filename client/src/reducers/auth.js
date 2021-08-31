@@ -22,10 +22,23 @@ export default function authentication(state = initialState, action) {
                 admin: payload,
                 error: null
             };
+
+
+        case LOGIN_SUCCESS: 
+            localStorage.setItem('token', payload.token);            
+            return {
+                ...state,
+                ...payload,
+                isAuthenticated: true,
+                loading:false,
+                error: null
+
+        };
         
         case AUTH_ERROR:
         case LOGIN_FAIL:
-        case LOGOUT:            
+        case LOGOUT:    
+            //localStorage.removeItem('token');         
             return {
                 ...state,
                 token: null,
@@ -35,15 +48,7 @@ export default function authentication(state = initialState, action) {
                 error: errMsg
             };
         
-        case LOGIN_SUCCESS:             
-            return {
-                ...state,
-                ...payload,
-                isAuthenticated: true,
-                loading:false,
-                error: null
-
-            };
+        
         
 
         default:
