@@ -55,7 +55,6 @@ router.post('/adminLogin',
                 Name: admin.Name
                 
             };
-            console.log("msg: ", admin);
 
             const jwtsecret = process.env.JWT_SECRET;
 
