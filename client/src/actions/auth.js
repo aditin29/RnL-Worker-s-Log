@@ -33,11 +33,11 @@ export const login = (Name, Password) => async dispatch => {
   
 
     const body = {Name, Password};
-    //console.log(body);
+    console.log("auth/actions: ", body);
 
     try {
         const res = await axios.post("/auth/adminLogin", body, config);
-        //console.log(res.data);
+        console.log("auth/actions: ", res.data);
         dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data
