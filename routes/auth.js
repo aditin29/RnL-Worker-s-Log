@@ -34,6 +34,7 @@ router.post('/adminLogin',
         }
 
         const {Name, Password} = req.body;
+        console.log(Name, Password);
 
         try {
 
@@ -55,6 +56,8 @@ router.post('/adminLogin',
                 Name: admin.Name
                 
             };
+
+            console.log(payload);
 
             const jwtsecret = process.env.JWT_SECRET;
 
