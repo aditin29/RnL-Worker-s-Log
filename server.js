@@ -14,15 +14,15 @@ app.use(express.json());
 
 
 const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: true, useCreateIndex: true});
+//mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: true, useCreateIndex: true});
 
-// async () => {
-//     try {
-//       await mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: true, useCreateIndex: true})
-//     } catch (err) {
-//       console.log('error: ' + err)
-//     }
-// }
+async () => {
+    try {
+      await mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: true, useCreateIndex: true})
+    } catch (err) {
+      console.log('error: ' + err)
+    }
+}
 
 
 
