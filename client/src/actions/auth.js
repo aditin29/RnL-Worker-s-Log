@@ -25,18 +25,18 @@ export const loadAdmin = () => async dispatch => {
 
 //login admin
 export const login = (Name, Password) => async dispatch => {
-    const config = {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    };
+    // const config = {
+    //     headers: {
+    //         'Content-Type': 'application/json'
+    //     }
+    // };
   
 
     const body = {Name, Password};
-    console.log("auth/actions: ", body);
+    console.log("auth/actions body : ", body);
 
     try {
-        const res = await axios.post("/auth/adminLogin", body, config);
+        const res = await axios.post("/auth/adminLogin", body);
         console.log("auth/actions: ", res.data);
         dispatch({
             type: LOGIN_SUCCESS,
