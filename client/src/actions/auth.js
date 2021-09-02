@@ -35,25 +35,51 @@ export const login = (Name, Password) => async dispatch => {
     const body = {Name, Password};
     //console.log("auth/actions body : ", body);
 
-    try {
-        const res = await axios.post("/auth/adminLogin", body);
-        console.log("auth/actions: ", res.data);
-        dispatch({
-            type: LOGIN_SUCCESS,
-            payload: res.data
-        });
+    //try {
+
+        var request = {
+            method: 'post',
+            url: '/auth/adminLogin',
+            headers: { 
+              'Content-Type': 'application/json'
+            },
+            data : JSON.stringify(body)
+          };
         
-        dispatch(loadAdmin());
+          axios(request)
+          .then(function (response) {
+            console.log(response.data);
+            
+          })
+          .catch(function (err) {
+            const errors = err.response.data.errors;
+            let errMsg = '';
+            errors?.forEach(error => errMsg = (error.msg));
+            dispatch({
+                type: LOGIN_FAIL,
+                errMsg: errMsg
+            });
+          });
+
+
+        //const res = await axios.post("/auth/adminLogin", body);
+    //     console.log("auth/actions: ", res.data);
+    //     dispatch({
+    //         type: LOGIN_SUCCESS,
+    //         payload: res.data
+    //     });
         
-    } catch(err) {
-        const errors = err.response.data.errors;
-        let errMsg = '';
-        errors?.forEach(error => errMsg = (error.msg));
-        dispatch({
-            type: LOGIN_FAIL,
-            errMsg: errMsg
-        });
-    }
+    //     dispatch(loadAdmin());
+        
+    // } catch(err) {
+    //     const errors = err.response.data.errors;
+    //     let errMsg = '';
+    //     errors?.forEach(error => errMsg = (error.msg));
+    //     dispatch({
+    //         type: LOGIN_FAIL,
+    //         errMsg: errMsg
+    //     });
+    // }
 
 
 }

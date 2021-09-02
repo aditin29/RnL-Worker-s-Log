@@ -57,7 +57,7 @@ router.post('/adminLogin',
                 
             };
 
-            console.log(payload);
+        console.log(payload);
 
             const jwtsecret = process.env.JWT_SECRET;
 
