@@ -49,6 +49,12 @@ export const login = (Name, Password) => async dispatch => {
           axios(request)
           .then(function (response) {
             console.log(".then working");
+            dispatch({
+                type: LOGIN_SUCCESS,
+                payload: response.data
+            });
+            
+            dispatch(loadAdmin());
             
           })
           .catch(function (err) {
@@ -65,12 +71,12 @@ export const login = (Name, Password) => async dispatch => {
 
         //const res = await axios.post("/auth/adminLogin", body);
     //     console.log("auth/actions: ", res.data);
-    //     dispatch({
-    //         type: LOGIN_SUCCESS,
-    //         payload: res.data
-    //     });
+        // dispatch({
+        //     type: LOGIN_SUCCESS,
+        //     payload: res.data
+        // });
         
-    //     dispatch(loadAdmin());
+        // dispatch(loadAdmin());
         
     // } catch(err) {
     //     const errors = err.response.data.errors;
