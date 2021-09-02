@@ -2,7 +2,7 @@
 
 # dependencies
 node_modules/
-.env
+#.env
 client/node_modules/
-.env.production
+#.env.production
 client/build

@@ -22,12 +22,11 @@ router.get('/', auth, async (req, res) => {
 
 
 router.post('/adminLogin', 
-    [
         check('Name', 'Name is required')
             .not()
             .isEmpty(),
         check('Password', 'Password is required').exists()
-    ], async (req, res) => {
+    , async (req, res) => {
         const errors = validationResult(req);
         if(!errors.isEmpty()) {
             return res.status(400).json({errors: errors.array()});
