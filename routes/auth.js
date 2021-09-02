@@ -74,6 +74,7 @@ router.post('/adminLogin',
         }catch(err) {
             console.error(err.message);
             res.status(500).send('Server Error');
+            console.log("backend catch");
         }            
                     
                

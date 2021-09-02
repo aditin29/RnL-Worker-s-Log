@@ -48,13 +48,14 @@ export const login = (Name, Password) => async dispatch => {
         
           axios(request)
           .then(function (response) {
-            console.log(response.data);
+            console.log(".then working");
             
           })
           .catch(function (err) {
             const errors = err.response.data.errors;
             let errMsg = '';
             errors?.forEach(error => errMsg = (error.msg));
+            console.log("catch err");
             dispatch({
                 type: LOGIN_FAIL,
                 errMsg: errMsg
