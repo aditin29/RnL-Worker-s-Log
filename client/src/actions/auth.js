@@ -11,7 +11,7 @@ export const loadAdmin = () => async dispatch => {
     }
 
     try {
-        const res = await axios.get("/auth/");
+        const res = await axios.get("https://rnl-workers-log.herokuapp.com/auth/");
         dispatch({
             type: ADMIN_LOADED,
             payload: res.data
@@ -35,58 +35,58 @@ export const login = (Name, Password) => async dispatch => {
     const body = {Name, Password};
     //console.log("auth/actions body : ", body);
 
-    //try {
+    try {
 
-        var request = {
-            method: 'post',
-            url: '/auth/adminLogin',
-            headers: { 
-              'Content-Type': 'application/json'
-            },
-            data : JSON.stringify(body)
-          };
+        // var request = {
+        //     method: 'post',
+        //     url: 'https://rnl-workers-log.herokuapp.com/auth/adminLogin',
+        //     headers: { 
+        //       'Content-Type': 'application/json'
+        //     },
+        //     data : JSON.stringify(body)
+        //   };
         
-          axios(request)
-          .then(function (response) {
-            console.log(".then working");
-            dispatch({
-                type: LOGIN_SUCCESS,
-                payload: response.data
-            });
+        //   axios(request)
+        //   .then(function (response) {
+        //     console.log(".then working");
+        //     dispatch({
+        //         type: LOGIN_SUCCESS,
+        //         payload: response.data
+        //     });
             
-            dispatch(loadAdmin());
+        //     dispatch(loadAdmin());
             
-          })
-          .catch(function (err) {
-            const errors = err.response.data.errors;
-            let errMsg = '';
-            errors?.forEach(error => errMsg = (error.msg));
-            console.log("catch err");
-            dispatch({
-                type: LOGIN_FAIL,
-                errMsg: errMsg
-            });
-          });
+        //   })
+        //   .catch(function (err) {
+        //     const errors = err.response.data.errors;
+        //     let errMsg = '';
+        //     errors?.forEach(error => errMsg = (error.msg));
+        //     console.log("catch err");
+        //     dispatch({
+        //         type: LOGIN_FAIL,
+        //         errMsg: errMsg
+        //     });
+        //   });
 
 
-        //const res = await axios.post("/auth/adminLogin", body);
-    //     console.log("auth/actions: ", res.data);
-        // dispatch({
-        //     type: LOGIN_SUCCESS,
-        //     payload: res.data
-        // });
+        const res = await axios.post("https://rnl-workers-log.herokuapp.com/auth/adminLogin", body);
+        console.log("auth/actions: ", res.data);
+        dispatch({
+            type: LOGIN_SUCCESS,
+            payload: res.data
+        });
         
-        // dispatch(loadAdmin());
+        dispatch(loadAdmin());
         
-    // } catch(err) {
-    //     const errors = err.response.data.errors;
-    //     let errMsg = '';
-    //     errors?.forEach(error => errMsg = (error.msg));
-    //     dispatch({
-    //         type: LOGIN_FAIL,
-    //         errMsg: errMsg
-    //     });
-    // }
+    } catch(err) {
+        const errors = err.response.data.errors;
+        let errMsg = '';
+        errors?.forEach(error => errMsg = (error.msg));
+        dispatch({
+            type: LOGIN_FAIL,
+            errMsg: errMsg
+        });
+    }
 
 
 }

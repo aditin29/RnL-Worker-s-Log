@@ -31,7 +31,7 @@ function Advance({setTrig, worker}) {
 
         let id = worker._id;
 
-        await axios.post(`/users/update${advMonth}Adv/${id}`, AdvanceAmt)
+        await axios.post(`https://rnl-workers-log.herokuapp.com/users/update${advMonth}Adv/${id}`, AdvanceAmt)
                 .then(setErrAlert(false), setAlert(true))
                 .catch(err => {setError(err); setErrAlert(true);})
     } 

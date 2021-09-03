@@ -34,7 +34,7 @@ function Workers() {
         async function getData(){
 
             if(sortSiteVal === "All"){
-                await axios.get("/users/siteSortAlpha")
+                await axios.get("https://rnl-workers-log.herokuapp.com/users/siteSortAlpha")
                     .then(res => {setWorkers(res.data)})
                     .catch(err => {console.log(err)})
             } else {
@@ -42,13 +42,13 @@ function Workers() {
                 const siteVal = {
                     site: sortSiteVal
                 }
-                await axios.post("/users/siteSort", siteVal)
+                await axios.post("https://rnl-workers-log.herokuapp.com/users/siteSort", siteVal)
                     .then(res => {setWorkers(res.data)})
                     .catch(err => {console.log(err)})
             }
             
             
-            await axios.get("/sites")
+            await axios.get("https://rnl-workers-log.herokuapp.com/sites")
                 .then(res => setSites(res.data))
                 .catch(err => console.log(err))
         }

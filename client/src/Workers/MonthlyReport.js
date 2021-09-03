@@ -55,12 +55,12 @@ function MonthlyReport() {
        
         async function getData() {
 
-            await axios.get("/sites")
+            await axios.get("https://rnl-workers-log.herokuapp.com/sites")
                     .then(res => setSites(res.data))
                     .catch(err => console.log(err))
 
             if(sortSiteVal === "All"){
-                await axios.get("/users/siteSortAlpha")
+                await axios.get("https://rnl-workers-log.herokuapp.com/users/siteSortAlpha")
                     .then(res => {setWorkers(res.data)})
                     .catch(err => {console.log(err)})
             } else {
@@ -68,7 +68,7 @@ function MonthlyReport() {
                 const siteVal = {
                     site: sortSiteVal
                 }
-                await axios.post(`/users/siteSort${month}`, siteVal)
+                await axios.post(`https://rnl-workers-log.herokuapp.com/users/siteSort${month}`, siteVal)
                     .then(res => {setWorkers(res.data)})
                     .catch(err => {console.log(err)})
             }
@@ -79,7 +79,7 @@ function MonthlyReport() {
             
             setMonth(x);
     
-            await axios.get(`/users/${month}Report`)
+            await axios.get(`https://rnl-workers-log.herokuapp.com/users/${month}Report`)
                         .then(res => setReport(res.data) )
                         .catch(err => console.log(err))
         }
@@ -109,7 +109,7 @@ function MonthlyReport() {
         workers.map(worker => {
             let Id = worker._id;
             
-            return(axios.post(`/users/reset${mon}/${Id}`)
+            return(axios.post(`https://rnl-workers-log.herokuapp.com/users/reset${mon}/${Id}`)
             .then(res => {console.log(res.data)})
             .catch(err => {console.log(err)}))
         })

@@ -30,7 +30,7 @@ function Sites() {
         async function getData(){
 
                        
-            await axios.get("/sites")
+            await axios.get("https://rnl-workers-log.herokuapp.com/sites")
                 .then(res => setSites(res.data))
                 .catch(err => console.log(err))
         }
@@ -54,7 +54,7 @@ function Sites() {
             siteName: siteName
         }
 
-        await axios.post("/sites/addSite", site)
+        await axios.post("https://rnl-workers-log.herokuapp.com/sites/addSite", site)
                 .then(res => {setErrAlert(false); setAddSuccess(true);})
                 .catch(err => {setError(err); setErrAlert(true);})
 
@@ -71,7 +71,7 @@ function Sites() {
 
         console.log(deleteSiteVal)
 
-        await axios.delete("/sites/deleteSite", site)
+        await axios.delete("https://rnl-workers-log.herokuapp.com/sites/deleteSite", site)
                 .then(res => {setDelFail(false); setDelSuccess(true);})
                 .catch(err => {setDelErr(err); setDelFail(true);})
 

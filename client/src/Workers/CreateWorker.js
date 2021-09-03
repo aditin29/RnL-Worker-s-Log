@@ -14,7 +14,7 @@ function CreateWorker() {
 
     useEffect(() => {
         async function getSites(){
-            await axios.get("/sites")
+            await axios.get("https://rnl-workers-log.herokuapp.com/sites")
                 .then(res => setSites(res.data))
                 .catch(err => console.log(err))
         }
@@ -81,7 +81,7 @@ function CreateWorker() {
 
         try {
             setErrAlert(false);
-            await axios.post("/users/add", userData);
+            await axios.post("https://rnl-workers-log.herokuapp.com/users/add", userData);
             
             history.push('/workers');
         
