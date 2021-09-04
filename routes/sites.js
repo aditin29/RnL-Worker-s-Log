@@ -31,7 +31,7 @@ router.post('/addSite', auth, (req, res) => {
 // });
 
 router.delete('/deleteSite/:id', auth, (req, res) => {
-  Site.findById(req.params.id)
+  Site.findByIdAndDelete(req.params.id)
     .then(() => res.json('Site deleted.'))
     .catch(err => res.status(400).json('Error: ' + err));
 });

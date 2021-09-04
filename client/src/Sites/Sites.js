@@ -78,9 +78,9 @@ function Sites() {
 
         console.log(deleteSiteId);
 
-        await axios.delete(`https://rnl-workers-log.herokuapp.com/sites/deleteSite/${deleteSiteId}`)
-                .then(res => {setDelFail(false); setDelSuccess(true);})
-                .catch(err => {setDelErr(err); setDelFail(true);})
+        // await axios.delete(`https://rnl-workers-log.herokuapp.com/sites/deleteSite/${deleteSiteId}`)
+        //         .then(res => {setDelFail(false); setDelSuccess(true);})
+        //         .catch(err => {setDelErr(err); setDelFail(true);})
 
         
     }
