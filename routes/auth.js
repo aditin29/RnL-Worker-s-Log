@@ -10,7 +10,7 @@ require('dotenv').config();
 
 
 
-router.get('/', async (req, res) => {
+router.get('/', auth, async (req, res) => {
     try{
         const admin = await Admin.find({Name: req.Name}).select('-Password');
         res.json(admin);
