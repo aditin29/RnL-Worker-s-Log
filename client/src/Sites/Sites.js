@@ -19,6 +19,7 @@ function Sites() {
     const [deleteSite, setDeleteSite] = useState(false);
     const [sites, setSites] = useState([]);
     const [deleteSiteVal, setDeleteSiteVal] = useState('');
+    const [deleteSiteId, setDeleteSiteId] = useState('');
     const [delSuccess, setDelSuccess] = useState(false);  
     const [delFail, setDelFail] = useState(false);  
     const [delErr, setDelErr] = useState(false);    
@@ -64,14 +65,21 @@ function Sites() {
 
     async function handleDelete(e) {
         e.preventDefault();
+
+        sites.map(site => {
+                if(site.siteName === deleteSiteVal){
+                    setDeleteSiteId(site._id);
+                } 
+            }
+        )
         
-        const site = {
-            deleteSiteVal: deleteSiteVal
-        }
+        // const site = {
+        //     deleteSiteVal: deleteSiteVal
+        // }
 
         //console.log(deleteSiteVal)
 
-        await axios.delete("https://rnl-workers-log.herokuapp.com/sites/deleteSite", site)
+        await axios.delete(`https://rnl-workers-log.herokuapp.com/sites/deleteSite/${deleteSiteId}`)
                 .then(res => {setDelFail(false); setDelSuccess(true);})
                 .catch(err => {setDelErr(err); setDelFail(true);})
 

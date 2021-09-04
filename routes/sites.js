@@ -24,8 +24,14 @@ router.post('/addSite', auth, (req, res) => {
 
 
 //delete site
-router.delete('/deleteSite', auth, (req, res) => {
-  Site.remove({deleteSiteVal: req.body.deleteSiteVal})
+// router.delete('/deleteSite', auth, (req, res) => {
+//   Site.remove({deleteSiteVal: req.body.deleteSiteVal})
+//     .then(() => res.json('Site deleted.'))
+//     .catch(err => res.status(400).json('Error: ' + err));
+// });
+
+router.delete('/deleteSite/:id', auth, (req, res) => {
+  Site.findByIdAndDelete(req.params.id)
     .then(() => res.json('Site deleted.'))
     .catch(err => res.status(400).json('Error: ' + err));
 });
