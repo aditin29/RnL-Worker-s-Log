@@ -18,7 +18,6 @@ const uri = process.env.ATLAS_URI;
 async () => {
     try {
       await mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: true, useCreateIndex: true});
-      console.log('connection established')
     } catch (err) {
       console.log('error: ' + err)
     }
