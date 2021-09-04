@@ -62,15 +62,19 @@ function Sites() {
         
     }
 
+    function handleDelVal(e){
+        sites.map(site => 
+            site.siteName === e.target.value &&
+                setDeleteSiteId(site._id)               
+        
+        )
+    }
+
 
     async function handleDelete(e) {
         e.preventDefault();
 
-        sites.map(site => 
-                site.siteName === deleteSiteVal &&
-                    setDeleteSiteId(site._id)               
-            
-        )
+        
         
         // const site = {
         //     deleteSiteVal: deleteSiteVal
@@ -78,9 +82,9 @@ function Sites() {
 
         console.log(deleteSiteId);
 
-        // await axios.delete(`https://rnl-workers-log.herokuapp.com/sites/deleteSite/${deleteSiteId}`)
-        //         .then(res => {setDelFail(false); setDelSuccess(true);})
-        //         .catch(err => {setDelErr(err); setDelFail(true);})
+        await axios.delete(`https://rnl-workers-log.herokuapp.com/sites/deleteSite/${deleteSiteId}`)
+                .then(res => {setDelFail(false); setDelSuccess(true);})
+                .catch(err => {setDelErr(err); setDelFail(true);})
 
         
     }
@@ -123,7 +127,7 @@ function Sites() {
 
                     <h3>Site Name</h3>
                     <div >
-                        <select name="site" value={deleteSiteVal} onChange={(e) => setDeleteSiteVal(e.target.value)} className="workers__dropdown" style={{width: "300px", backgroundColor: "transparent", border: "2px solid #1c243a", color: "#1c243a"}}>
+                        <select name="site" value={deleteSiteVal} onChange={handleDelVal} className="workers__dropdown" style={{width: "300px", backgroundColor: "transparent", border: "2px solid #1c243a", color: "#1c243a"}}>
                             <option >-select-</option>
                                 {sites.map(site => (
                                     <option >{site.siteName}</option>
