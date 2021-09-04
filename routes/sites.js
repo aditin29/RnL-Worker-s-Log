@@ -25,7 +25,7 @@ router.post('/addSite', auth, (req, res) => {
 
 //delete site
 router.delete('/deleteSite', auth, (req, res) => {
-  Site.find({deleteSiteVal: req.body.deleteSiteVal})
+  Site.deleteOne({deleteSiteVal: req.body.deleteSiteVal})
     .then(() => res.json('Site deleted.'))
     .catch(err => res.status(400).json('Error: ' + err));
 });
