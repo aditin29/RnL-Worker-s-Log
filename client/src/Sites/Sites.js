@@ -66,18 +66,17 @@ function Sites() {
     async function handleDelete(e) {
         e.preventDefault();
 
-        sites.map(site => {
-                if(site.siteName === deleteSiteVal){
-                    setDeleteSiteId(site._id);
-                } 
-            }
+        sites.map(site => 
+                site.siteName === deleteSiteVal &&
+                    setDeleteSiteId(site._id)               
+            
         )
         
         // const site = {
         //     deleteSiteVal: deleteSiteVal
         // }
 
-        //console.log(deleteSiteVal)
+        console.log(deleteSiteId);
 
         await axios.delete(`https://rnl-workers-log.herokuapp.com/sites/deleteSite/${deleteSiteId}`)
                 .then(res => {setDelFail(false); setDelSuccess(true);})
