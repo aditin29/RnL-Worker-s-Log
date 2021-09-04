@@ -33,7 +33,7 @@ router.post('/adminLogin',
         }
 
         const {Name, Password} = req.body;
-        console.log(Name, Password);
+        //console.log(Name, Password);
 
         try {
 
@@ -56,7 +56,7 @@ router.post('/adminLogin',
                 
             };
 
-        console.log(payload);
+        //console.log(payload);
 
             const jwtsecret = process.env.JWT_SECRET;
 
@@ -73,7 +73,7 @@ router.post('/adminLogin',
         }catch(err) {
             console.error(err.message);
             res.status(500).send('Server Error');
-            console.log("backend catch");
+            //console.log("backend catch");
         }            
                     
                

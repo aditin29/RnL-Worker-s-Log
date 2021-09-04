@@ -69,7 +69,7 @@ function Sites() {
             deleteSiteVal: deleteSiteVal
         }
 
-        console.log(deleteSiteVal)
+        //console.log(deleteSiteVal)
 
         await axios.delete("https://rnl-workers-log.herokuapp.com/sites/deleteSite", site)
                 .then(res => {setDelFail(false); setDelSuccess(true);})

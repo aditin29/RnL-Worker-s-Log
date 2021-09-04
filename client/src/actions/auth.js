@@ -37,40 +37,10 @@ export const login = (Name, Password) => async dispatch => {
 
     try {
 
-        // var request = {
-        //     method: 'post',
-        //     url: 'https://rnl-workers-log.herokuapp.com/auth/adminLogin',
-        //     headers: { 
-        //       'Content-Type': 'application/json'
-        //     },
-        //     data : JSON.stringify(body)
-        //   };
         
-        //   axios(request)
-        //   .then(function (response) {
-        //     console.log(".then working");
-        //     dispatch({
-        //         type: LOGIN_SUCCESS,
-        //         payload: response.data
-        //     });
-            
-        //     dispatch(loadAdmin());
-            
-        //   })
-        //   .catch(function (err) {
-        //     const errors = err.response.data.errors;
-        //     let errMsg = '';
-        //     errors?.forEach(error => errMsg = (error.msg));
-        //     console.log("catch err");
-        //     dispatch({
-        //         type: LOGIN_FAIL,
-        //         errMsg: errMsg
-        //     });
-        //   });
-
 
         const res = await axios.post("https://rnl-workers-log.herokuapp.com/auth/adminLogin", body);
-        console.log("auth/actions: ", res.data);
+        //console.log("auth/actions: ", res.data);
         dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data
