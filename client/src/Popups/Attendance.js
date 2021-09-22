@@ -107,7 +107,6 @@ function Attendance({setTrig, worker}) {
             
         }
 
-        console.log("worker: ", worker);
 
         const totDeduction = pf + esic + pt + adv + lwf;
 
@@ -133,7 +132,6 @@ function Attendance({setTrig, worker}) {
         }
         
         let id = worker._id;
-        console.log(month);
         await axios.post(`https://rnl-workers-log.herokuapp.com/users/update${month}Report/${id}`, reportData)
                 .then(setErrAlert(false), setAddSuccess(true))
                 .catch(err => {setError(err); setErrAlert(true);})

@@ -26,7 +26,7 @@ function Advance({setTrig, worker}) {
 
         const AdvanceAmt = {
 	
-			adv: amtRef.current.value		
+			adv: Number(amtRef.current.value)		
         }
 
         let id = worker._id;
