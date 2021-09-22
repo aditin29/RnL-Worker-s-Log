@@ -15,7 +15,6 @@ function Attendance({setTrig, worker}) {
     const [month, setMonth] = useState('Jan');
     const pdaysRef = useRef();
     const otRef = useRef();
-
     // const [pf, setPf] = useState(0);
     // const [pt, setPt] = useState(0);
 
@@ -27,9 +26,9 @@ function Attendance({setTrig, worker}) {
 
     async function handleSave() {
 
-        const basicWages = pdaysRef.current.value * worker.wagesRate;
-        const daWages = pdaysRef.current.value * worker.daRate;
-        const otAmt = otRef.current.value * worker.otRate;
+        const basicWages = Number(pdaysRef.current.value) * worker.wagesRate;
+        const daWages = Number(pdaysRef.current.value) * worker.daRate;
+        const otAmt = Number(otRef.current.value) * worker.otRate;
         const hra = Number(((basicWages + daWages) * 0.05).toFixed());
         const totalWages = Number((basicWages + daWages + otAmt + hra).toFixed());
         
@@ -108,6 +107,7 @@ function Attendance({setTrig, worker}) {
             
         }
 
+        console.log("worker: ", worker);
         console.log("adv = ", adv);
 
         const totDeduction = pf + esic + pt + adv + lwf;
@@ -118,8 +118,8 @@ function Attendance({setTrig, worker}) {
 
         const reportData = {
 	
-			presentDays: pdaysRef.current.value,
-			otHrs: otRef.current.value,
+			presentDays: Number(pdaysRef.current.value),
+			otHrs: Number(otRef.current.value),
 			basicWages: basicWages,
 			daWages: daWages,
 			otAmt: otAmt,
