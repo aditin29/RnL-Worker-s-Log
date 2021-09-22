@@ -30,8 +30,8 @@ function Attendance({setTrig, worker}) {
         const basicWages = pdaysRef.current.value * worker.wagesRate;
         const daWages = pdaysRef.current.value * worker.daRate;
         const otAmt = otRef.current.value * worker.otRate;
-        const hra = (basicWages + daWages) * 0.05;
-        const totalWages = basicWages + daWages + otAmt + hra;
+        const hra = Number(((basicWages + daWages) * 0.05).toFixed());
+        const totalWages = Number((basicWages + daWages + otAmt + hra).toFixed());
         
         let pf=0;
         if((basicWages + daWages) > 15000) {
@@ -40,7 +40,7 @@ function Attendance({setTrig, worker}) {
             pf =Math.round(((basicWages + daWages) * 0.12)*10000)/10000;
         }
 
-        const esic = Math.round(totalWages * 0.0075*10000)/10000;
+        const esic = Number((totalWages * 0.0075).toFixed());
 
         let pt = 0
         if(totalWages <= 7500) {
@@ -107,6 +107,8 @@ function Attendance({setTrig, worker}) {
                 break;
             
         }
+
+        console.log("adv = ", adv);
 
         const totDeduction = pf + esic + pt + adv + lwf;
 
