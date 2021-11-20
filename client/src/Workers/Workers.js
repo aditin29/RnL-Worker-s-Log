@@ -118,7 +118,7 @@ function Workers() {
                                             <button onClick={() => {setTrigAtt(true); setWorker(worker)}} className="workers__btn" style={{left: "1080px", marginLeft: "20px"}}>Attendance</button>
                                             <button onClick={() => {setTrigAdv(true); setWorker(worker)}} className="workers__btn" style={{left: "1230px", marginLeft: "20px"}}>Pay Advance</button>
                                             <button className="workers__editIcon"><CreateIcon className="workers__createIcon" onClick={() => {setEdit(true); setWorker(worker)}}></CreateIcon> </button>
-                                            <button className="workers__editIcon" style={{width: "50px", marginLeft: "70px"}}><DeleteOutlineIcon className="workers__createIcon" onClick={() => setDel(true)} ></DeleteOutlineIcon> </button>
+                                            <button className="workers__editIcon" style={{width: "50px", marginLeft: "20px"}}><DeleteOutlineIcon className="workers__createIcon" onClick={() => setDel(true)} ></DeleteOutlineIcon> </button>
                                         </tr>
                                     ))}
                                 
