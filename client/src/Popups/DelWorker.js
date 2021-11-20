@@ -11,11 +11,13 @@ function DelWorker({setTrig, worker}) {
     const [alert, setAlert] = useState(false);  
 
 
-    async function handleDel() {
+    async function handleDel(e) {
+
+        e.preventDefault();
 
         let id = worker._id;
 
-        await axios.delete(`https://rnl-workers-log.herokuapp.com/users/delWorker/${id}`)
+        await axios.delete(`https://rnl-workers-log.herokuapp.com/users/deleteWorker/${id}`)
                 .then(setErrAlert(false), setAlert(true))
                 .catch(err => {setError(err); setErrAlert(true);})
     } 
