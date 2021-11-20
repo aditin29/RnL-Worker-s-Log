@@ -8,8 +8,10 @@ import Attendance from '../Popups/Attendance';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Advance from '../Popups/Advance';
 import CreateIcon from '@material-ui/icons/Create';
+import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 import EditProfile from '../Popups/EditProfile';
 import EditDetails from '../Popups/EditDetails';
+import DelWorker from '../Popups/DelWorker';
 //import api from '../utils/api'
 
 function Workers() {
@@ -21,6 +23,8 @@ function Workers() {
     const [trigAdv, setTrigAdv] = useState(false);
     const [edit, setEdit] = useState(false);
     const [editDetails, setEditDetails] = useState('pdetails');
+    const [del, setDel] = useState(false);
+    const [trigDel, setTrigDel] = useState(false);
     const [editOpt, setEditOpt] = useState(false);
     const [worker, setWorker] = useState();
 
@@ -114,7 +118,7 @@ function Workers() {
                                             <button onClick={() => {setTrigAtt(true); setWorker(worker)}} className="workers__btn" style={{left: "1080px", marginLeft: "20px"}}>Attendance</button>
                                             <button onClick={() => {setTrigAdv(true); setWorker(worker)}} className="workers__btn" style={{left: "1230px", marginLeft: "20px"}}>Pay Advance</button>
                                             <button className="workers__editIcon"><CreateIcon className="workers__createIcon" onClick={() => {setEdit(true); setWorker(worker)}}></CreateIcon> </button>
-
+                                            <button className="workers__editIcon" style={{width: "50px", marginLeft: "70px"}}><DeleteOutlineIcon className="workers__createIcon" onClick={() => setDel(true)} ></DeleteOutlineIcon> </button>
                                         </tr>
                                     ))}
                                 
@@ -131,6 +135,8 @@ function Workers() {
                    {trigAdv && <ExpandMoreIcon style={{backgroundColor: "#1c243a", color: "white", borderRadius: "50px", marginLeft: "50%", marginTop: "20px", fontSize: "40px"}} />}
 
                    {edit && <ExpandMoreIcon style={{backgroundColor: "#1c243a", color: "white", borderRadius: "50px", marginLeft: "50%", marginTop: "20px", fontSize: "40px"}} />}
+
+                   {del && <ExpandMoreIcon style={{backgroundColor: "#1c243a", color: "white", borderRadius: "50px", marginLeft: "50%", marginTop: "20px", fontSize: "40px"}} />}
                    
                    
                     
@@ -156,6 +162,10 @@ function Workers() {
 
             {editOpt && <div style={{position: "absolute", height: "100%", width: "100%", left: "0", backgroundColor: "#9ae3e6"}} >
                 <EditDetails setTrig={setEditOpt} worker={worker} editDetails={editDetails} />
+            </div>}
+
+            {trigDel && <div style={{position: "absolute", height: "100%", width: "100%", left: "0", backgroundColor: "#9ae3e6"}} >
+                <DelWorker setTrig={setTrigDel} worker={worker} />
             </div>}
 
 

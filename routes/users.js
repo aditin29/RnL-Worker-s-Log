@@ -254,6 +254,14 @@ router.post('/add', auth, (req, res) => {
 });
 
 
+//delete user
+router.delete('/deleteWorker/:id', auth, (req, res) => {
+  User.findByIdAndDelete(req.params.id)
+    .then(() => res.json('Worker deleted.'))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+
 //update user info
 router.post('/updatePdetails/:id', auth, (req, res) => {
     User.findById(req.params.id)
