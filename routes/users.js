@@ -258,8 +258,10 @@ router.post('/add', auth, (req, res) => {
 router.post('/updatePdetails/:id', auth, (req, res) => {
     User.findById(req.params.id)
       .then(user => {
+        user.aadharNo = req.body.aadharNo;
         user.phoneNo = req.body.phoneNo;
         user.address = req.body.address;
+        user.doj = Date.parse(req.body.doj);
         user.site = req.body.site;
         user.type = req.body.type;
   

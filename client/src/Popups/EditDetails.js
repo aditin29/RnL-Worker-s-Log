@@ -24,7 +24,9 @@ function EditDetails({setTrig, worker, editDetails}) {
 
     
     const phoneRef = useRef();
-    const addRef = useRef();    
+    const addRef = useRef();   
+    const aadharRef = useRef();
+    const dojRef = useRef(); 
     const [site, setSite] = useState('');
     const [type, setType] = useState('');
 
@@ -41,8 +43,10 @@ function EditDetails({setTrig, worker, editDetails}) {
         
         e.preventDefault();
         const userPdata = {
+            aadharNo: aadharRef.current.value,
             phoneNo: phoneRef.current.value,
             address: addRef.current.value,
+            doj: dojRef.current.value,
             site: site,
             type: type     
 
@@ -101,11 +105,14 @@ function EditDetails({setTrig, worker, editDetails}) {
                         <div className="cw__container" style={{display: "flex", justifyContent: "center", width: "38vw", alignItems: "center", height: "85vh", marginTop: "-50px", marginLeft: "50px"}}>
                             <div className="att__content">
                                 <h2 >{worker.name}</h2>
-
+                                <h3>Aadhar No.</h3>
+                                <input type="text" ref={aadharRef} className="cw__inp" />
                                 <h3>Phone No.</h3>
                                 <input type="text" ref={phoneRef} className="cw__inp" />
                                 <h3>Address</h3>
                                 <input type="text" ref={addRef} className="cw__inp" />
+                                <h3>Date Of Joining</h3>
+                                <input type="date" ref={dojRef} className="cw__inp" />
                                 <h3>Site</h3>
                                 <div >
                                         <select style={{overflowY: "scroll"}} value={site} onChange={handleSite} name="site" className="cw__dropdown">
