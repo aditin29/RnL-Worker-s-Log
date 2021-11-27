@@ -137,9 +137,9 @@ function MonthlyReport() {
 
             <div className="workers__title">
                 <div className="mr__report-title" >
-                    <button disabled={prev} onClick={handlePrev} className="mr__title-arrow"  style={{fontSize: "15px", marginRight: "20px", marginTop: "10px", color : "#9ae3e6"}} > Prev </button>
+                    <button disabled={prev} onClick={handlePrev} className="mr__title-arrow"  style={{fontSize: "15px", marginRight: "20px", marginTop: "10px", color : "#d6993c"}} > Prev </button>
                     <h2>{month}'s Report</h2>
-                    <button disabled={next} onClick={handleNext} className="mr__title-arrow"  style={{fontSize: "15px", marginLeft: "20px", marginTop: "10px", color : "#9ae3e6"}} >Next</button>
+                    <button disabled={next} onClick={handleNext} className="mr__title-arrow"  style={{fontSize: "15px", marginLeft: "20px", marginTop: "10px", color : "#d6993c"}} >Next</button>
                     
                 </div>
 
@@ -235,7 +235,7 @@ function MonthlyReport() {
                                                 <td className="mr__content-data" style={{marginRight: "30px"}}><p >{worker.uanNo}</p></td>
                                                 <td className="mr__content-data" style={{marginRight: "20px"}}><p >{worker.pfNo}</p></td>
                                                 <td className="mr__content-data" style={{marginRight: "50px"}}><p >{worker.esic}</p></td>
-                                                <td className="mr__content-data" style={{marginRight: "70px"}}><p >{wReport?.presentDays}</p></td>
+                                                <td className="mr__content-data" style={{marginRight: "50px"}}><p >{wReport?.presentDays}</p></td>
                                                 <td className="mr__content-data" style={{marginRight: "60px"}}><p >{wReport?.otHrs}</p></td>
                                                 <td className="mr__content-data" style={{marginRight: "70px"}}><p >{worker.wagesRate}</p></td>
                                                 <td className="mr__content-data" style={{marginRight: "60px"}}><p >{worker.daRate}</p></td>

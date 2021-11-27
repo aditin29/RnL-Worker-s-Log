@@ -28,7 +28,7 @@
   margin-bottom: 10px;
   padding: 0px 5px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #1c243a;
+  border-bottom: 3px solid #2D2F2F;
 }
 
 .mr__content-header td {
@@ -38,7 +38,7 @@
 
 .mr__content-worker {
   display: flex;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #2D2F2F;
   padding-bottom: 10px;
   align-items: center;
   height: 60px;
