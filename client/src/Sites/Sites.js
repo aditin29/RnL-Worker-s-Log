@@ -99,7 +99,7 @@ function Sites() {
                 {!deleteSite ? <div className="att__content">
                 
                     <button className="workers__editIcon" style={{width: "50px", marginLeft: "350px", marginTop: "-50px", display: "flex"}}><DeleteOutlineIcon className="workers__createIcon" onClick={() => setDeleteSite(true)} ></DeleteOutlineIcon> </button>
-                    <h2 >Add a Site</h2>
+                    <h2 style={{color: "#2D2F2F"}}>Add a Site</h2>
 
                     <h3>Site Name</h3>
                     <input type="text" className="cw__inp" value={siteName} onChange={handleSiteVal} style={{marginBottom: "40px", height: "40px"}} />
@@ -117,7 +117,7 @@ function Sites() {
                 <div className="att__content">
                 
                     <button className="workers__editIcon" style={{width: "50px", marginLeft: "-110px", marginTop: "-50px", display: "flex"}}><ArrowBackIcon className="workers__createIcon" onClick={() => setDeleteSite(false)} ></ArrowBackIcon> </button>
-                    <h2 >Delete a Site</h2>
+                    <h2 style={{color: "#2D2F2F"}}>Delete a Site</h2>
 
                     <h3>Site Name</h3>
                     <div >
