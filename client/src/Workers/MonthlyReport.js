@@ -238,7 +238,7 @@ function MonthlyReport() {
                                                 <td className="mr__content-data" style={{marginRight: "50px"}}><p >{wReport?.presentDays}</p></td>
                                                 <td className="mr__content-data" style={{marginRight: "60px"}}><p >{wReport?.otHrs}</p></td>
                                                 <td className="mr__content-data" style={{marginRight: "70px"}}><p >{worker.wagesRate}</p></td>
-                                                <td className="mr__content-data" style={{marginRight: "60px"}}><p >{worker.daRate}</p></td>
+                                                <td className="mr__content-data" style={{marginRight: "40px"}}><p >{worker.daRate}</p></td>
                                                 <td className="mr__content-data" style={{marginRight: "50px"}}><p >{worker.otRate}</p></td>
                                                 <td className="mr__content-data" style={{marginRight: "80px"}}><p >{wReport?.basicWages}</p></td>
                                                 <td className="mr__content-data" style={{marginRight: "40px"}}><p >{wReport?.daWages}</p></td>

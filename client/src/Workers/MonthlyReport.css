@@ -115,12 +115,12 @@
   height: 30px;
   border-radius: 10px;
   background-color: white;
-  border: 3px solid #1c243a;
+  border: 3px solid #D6993C;
   transition: all 0.5s;
 }
 
 .mr__popup-btns > button:hover {
-  background-color: #1c243a;
+  background-color: #D6993C;
   color: white;
   cursor: pointer;
 }

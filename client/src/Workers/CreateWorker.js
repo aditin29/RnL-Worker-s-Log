@@ -99,7 +99,7 @@ function CreateWorker() {
                 <Navbar />
             </div>
             
-            <div className="cw__container" style={{marginTop: "70px"}}>
+            <div className="cw__container" style={{marginTop: "90px", marginBottom: "70px"}}>
                 <div className="cw__lcontent">
                     <h2>Enter worker's personal details</h2>
                     <h3>Name</h3>
