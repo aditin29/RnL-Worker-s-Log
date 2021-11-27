@@ -23,6 +23,7 @@ const Navbar = ({auth: {isAuthenticated, loading}, logout}) => {
         <div className = "navbar">
 
             <div className="navbar__title"> 
+                <div className="logo-dash"></div>
                 <Link to='/' className="nav__title" >
                     Rocks & Logs
                 </Link>               
@@ -33,7 +34,9 @@ const Navbar = ({auth: {isAuthenticated, loading}, logout}) => {
 
             <div className="navbar__right"> 
                 <div className="nav__eles" >
-                    <Link to='/add-site' className="nav__ele"  ><h2>Add/Del Site</h2></Link>
+                    <Link to='/' className="nav__ele"  ><h2>Home</h2></Link>
+
+                    <Link to='/add-site' className="nav__ele"  ><h2>Sites</h2></Link>
 
                     <Link to='/workers' className="nav__ele"  ><h2>Workers</h2></Link>     
 
@@ -43,7 +46,7 @@ const Navbar = ({auth: {isAuthenticated, loading}, logout}) => {
                                              
                 
                 <button onClick={handleLogout} className="nav__link">
-                    Logout
+                    <h2>Logout</h2>
                 </button>
                     
             </div>
