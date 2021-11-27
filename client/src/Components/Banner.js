@@ -17,7 +17,7 @@ function Banner() {
 
 
     return (
-        <div className="banner" style={{ backgroundImage: "url(Media/banner.png)", opacity: 0.7 }}>
+        <div className="banner" style={{ backgroundImage: "url(Media/banner.png)", opacity: 0.85, backgroundPosition: 'center', backgroundSize: 'cover',}}>
             <Navbar />
             <div className="banner__content">
                 <h2>Workers Log</h2>
