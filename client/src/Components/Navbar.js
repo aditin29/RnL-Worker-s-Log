@@ -23,7 +23,7 @@ const Navbar = ({auth: {isAuthenticated, loading}, logout}) => {
         <div className = "navbar">
 
             <div className="navbar__title"> 
-                <div className="logo-dash"></div>
+                {/* <div className="logo-dash"></div> */}
                 <Link to='/' className="nav__title" >
                     Rocks & Logs
                 </Link>               
