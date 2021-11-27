@@ -74,8 +74,8 @@ function Workers() {
 
             <div className="workers__add">
                 <Link className="add__link" to='/create-worker'>
-                    <img src="Media/add.png" alt="" />
-                    <h2>Add a Worker</h2>
+                    <img src="Media/add1.png" alt="" />
+                    <h2 style={{marginTop: "10px", color: "#D6993C"}}>Add a Worker</h2>
                 </Link>
             </div>
 
@@ -127,15 +127,15 @@ function Workers() {
                     </div>
 
                     
-                   {trigProfile && <ExpandMoreIcon style={{backgroundColor: "#1c243a", color: "white", borderRadius: "50px", marginLeft: "50%", marginTop: "20px", fontSize: "40px"}} />}
+                   {trigProfile && <ExpandMoreIcon style={{backgroundColor: "#2D2F2F", color: "white", borderRadius: "50px", marginLeft: "50%", marginTop: "20px", fontSize: "40px"}} />}
 
-                   {trigAtt && <ExpandMoreIcon style={{backgroundColor: "#1c243a", color: "white", borderRadius: "50px", marginLeft: "50%", marginTop: "20px", fontSize: "40px"}} />}
+                   {trigAtt && <ExpandMoreIcon style={{backgroundColor: "#2D2F2F", color: "white", borderRadius: "50px", marginLeft: "50%", marginTop: "20px", fontSize: "40px"}} />}
 
-                   {trigAdv && <ExpandMoreIcon style={{backgroundColor: "#1c243a", color: "white", borderRadius: "50px", marginLeft: "50%", marginTop: "20px", fontSize: "40px"}} />}
+                   {trigAdv && <ExpandMoreIcon style={{backgroundColor: "#2D2F2F", color: "white", borderRadius: "50px", marginLeft: "50%", marginTop: "20px", fontSize: "40px"}} />}
 
-                   {edit && <ExpandMoreIcon style={{backgroundColor: "#1c243a", color: "white", borderRadius: "50px", marginLeft: "50%", marginTop: "20px", fontSize: "40px"}} />}
+                   {edit && <ExpandMoreIcon style={{backgroundColor: "#2D2F2F", color: "white", borderRadius: "50px", marginLeft: "50%", marginTop: "20px", fontSize: "40px"}} />}
 
-                   {trigDel && <ExpandMoreIcon style={{backgroundColor: "#1c243a", color: "white", borderRadius: "50px", marginLeft: "50%", marginTop: "20px", fontSize: "40px"}} />}
+                   {trigDel && <ExpandMoreIcon style={{backgroundColor: "#2D2F2F", color: "white", borderRadius: "50px", marginLeft: "50%", marginTop: "20px", fontSize: "40px"}} />}
                    
                    
                     

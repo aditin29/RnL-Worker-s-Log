@@ -4,7 +4,7 @@
 }
 
 .profile__back {
-  color: #1c243a;
+  color: #D6993C;
   background-color: white;
   /* color: white; */
   border-radius: 50px;
@@ -37,7 +37,7 @@
 .profile__lcontent > h2,
 .profile__rcontent > h2 {
   margin-bottom: 20px;
-  color: #1c243a;
+  color: #D6993C;
 }
 
 .profile__lcontent > h3,
