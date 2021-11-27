@@ -62,7 +62,7 @@
   border-radius: 25px;
   width: fit-content;
   font-size: 15px;
-  transition: 1s;
+  transition: 0.8s;
 }
 
 .nav__link:hover {
