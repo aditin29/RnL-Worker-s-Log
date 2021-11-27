@@ -52,8 +52,6 @@
   cursor: pointer;
   background-color: transparent;
   border: 4px solid white;
-  color: #D6993C;
-  font-weight: 400;
 }
 
 .banner__btn > h2 {
@@ -62,7 +60,7 @@
   font-size: 20px;
 }
 
-/* .banner__btn > h2:hover {
+.banner__btn > h2:hover {
   color: #D6993C;
   font-weight: 400;
-} */
+}

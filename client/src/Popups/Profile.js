@@ -9,11 +9,11 @@ function Profile({setTrig, worker}) {
                 <Navbar />
             </div> */}
 
-            <CloseIcon className="profile__back" onClick={() => setTrig(false)} style={{fontSize: "35px"}} />
+            <CloseIcon className="profile__back" onClick={() => setTrig(false)} style={{fontSize: "30px"}} />
             
             <div className="cw__container" >
                 <div className="profile__lcontent">
-                    <h2>Worker's personal details</h2>
+                    <h2 >Worker's personal details</h2>
                     <h3>Name</h3>
                     <p>{worker.name}</p>
                     <h3>Aadhar No.</h3>

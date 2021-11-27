@@ -105,32 +105,34 @@ function EditDetails({setTrig, worker, editDetails}) {
                         <div className="cw__container" style={{display: "flex", justifyContent: "center", width: "38vw", alignItems: "center", height: "85vh", marginTop: "-50px", marginLeft: "50px"}}>
                             <div className="att__content">
                                 <h2 >{worker.name}</h2>
-                                <h3>Aadhar No.</h3>
-                                <input type="text" ref={aadharRef} className="cw__inp" />
-                                <h3>Phone No.</h3>
-                                <input type="text" ref={phoneRef} className="cw__inp" />
-                                <h3>Address</h3>
-                                <input type="text" ref={addRef} className="cw__inp" />
-                                <h3>Date Of Joining</h3>
-                                <input type="date" ref={dojRef} className="cw__inp" />
-                                <h3>Site</h3>
-                                <div >
-                                        <select style={{overflowY: "scroll"}} value={site} onChange={handleSite} name="site" className="cw__dropdown">
-                                            <option >-select-</option>
-                                            {sites.map(site => (
-                                                <option >{site.siteName}</option>
-                                            ))}
-                                            
-                                        </select>
-                                </div>
-                                <h3>Type of worker</h3>
-                                <div >
-                                        <select value={type} onChange={handleType} name="type" className="cw__dropdown">
-                                            <option >-select-</option>
-                                            <option >Helper</option>
-                                            <option >Semi-mason</option>
-                                            <option >Mason</option>
-                                        </select>
+                                <div style={{overflowY: "scroll", maxHeight: "280px", marginBottom: "20px", marginTop: "-20px"}}>
+                                    <h3>Aadhar No.</h3>
+                                    <input type="text" ref={aadharRef} className="cw__inp" />
+                                    <h3>Phone No.</h3>
+                                    <input type="text" ref={phoneRef} className="cw__inp" />
+                                    <h3>Address</h3>
+                                    <input type="text" ref={addRef} className="cw__inp" />
+                                    <h3>Date Of Joining</h3>
+                                    <input type="date" ref={dojRef} className="cw__inp" />
+                                    <h3>Site</h3>
+                                    <div >
+                                            <select style={{overflowY: "scroll"}} value={site} onChange={handleSite} name="site" className="cw__dropdown">
+                                                <option >-select-</option>
+                                                {sites.map(site => (
+                                                    <option >{site.siteName}</option>
+                                                ))}
+                                                
+                                            </select>
+                                    </div>
+                                    <h3>Type of worker</h3>
+                                    <div >
+                                            <select value={type} onChange={handleType} name="type" className="cw__dropdown">
+                                                <option >-select-</option>
+                                                <option >Helper</option>
+                                                <option >Semi-mason</option>
+                                                <option >Mason</option>
+                                            </select>
+                                    </div>
                                 </div>
                                 
                                 <button onClick={handlePdetails} className="cw__btn" style={{marginBottom: "10px"}} >Save</button>
