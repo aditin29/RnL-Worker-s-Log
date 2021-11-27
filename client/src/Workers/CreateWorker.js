@@ -94,7 +94,7 @@ function CreateWorker() {
 
 
     return (
-        <div className="cw" style={{height: "200vh"}}>
+        <div className="cw" style={{height: "160vh"}}>
             <div className="cw__nav" >
                 <Navbar />
             </div>
