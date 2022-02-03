@@ -109,9 +109,50 @@ function Attendance({setTrig, worker}) {
             
         // }
 
-        await axios.get(`https://rnl-workers-log.herokuapp.com/users/getJanAdv/${id}`)
-                .then(res => {console.log("adv lwf: ", res.data)})
-                .catch(err => {console.log(err)})
+
+        if (month==="Jan"){
+            setAdv(worker.monthlyReport.Jan.adv);
+            console.log('working')
+        }
+        else if(month==="Feb"){
+            setAdv(worker.monthlyReport.Feb.adv);
+        }
+        else if(month==="Mar"){
+            setAdv(worker.monthlyReport.Mar.adv);
+        }
+        else if(month==="Apr"){
+            setAdv(worker.monthlyReport.Apr.adv);
+        }
+        else if(month==="May"){
+            setAdv(worker.monthlyReport.May.adv);
+        }
+        else if(month==="Jun"){
+            setAdv(worker.monthlyReport.Jun.adv);
+            setLwf(12);
+        }
+        else if(month==="Jul"){
+            setAdv(worker.monthlyReport.Jul.adv);
+        }
+        else if(month==="Aug"){
+            setAdv(worker.monthlyReport.Aug.adv);
+        }
+        else if(month==="Sep"){
+            setAdv(worker.monthlyReport.Sep.adv);
+        }
+        else if(month==="Oct"){
+            setAdv(worker.monthlyReport.Oct.adv);
+        }
+        else if(month==="Nov"){
+            setAdv(worker.monthlyReport.Nov.adv);
+        }
+        else{
+            setAdv(worker.monthlyReport.Dec.adv);
+            setLwf(12);
+        }
+
+        // await axios.get(`https://rnl-workers-log.herokuapp.com/users/getJanAdv/${id}`)
+        //         .then(res => {console.log("adv lwf: ", res.data)})
+        //         .catch(err => {console.log(err)})
 
 
         const totDeduction = pf + esic + pt + adv + lwf;
@@ -119,7 +160,6 @@ function Attendance({setTrig, worker}) {
         const fPay = Number((totalWages - totDeduction).toFixed());
 
         console.log("adv: ", adv)
-        console.log("jan: ", worker.monthlyReport.Jan.adv)
         console.log("worker: ", worker)
 
         const reportData = {
