@@ -3,6 +3,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import "./Attendance.css";
 import axios from 'axios';
 import Alert from '@material-ui/lab/Alert';
+import { useEffect } from 'react';
 //import api from '../utils/api'
 
 function Attendance({setTrig, worker}) {
@@ -25,97 +26,10 @@ function Attendance({setTrig, worker}) {
         setMonth(e.target.value);
     }
 
-  
-
-    async function handleSave() {
-
-        const basicWages = Number(pdaysRef.current.value) * worker.wagesRate;
-        const daWages = Number(pdaysRef.current.value) * worker.daRate;
-        const otAmt = Number(otRef.current.value) * worker.otRate;
-        const hra = Number(((basicWages + daWages) * 0.05).toFixed());
-        const totalWages = Number((basicWages + daWages + otAmt + hra).toFixed());
-        
-        let pf=0;
-        if((basicWages + daWages) > 15000) {
-            pf = (1800);
-        }else {
-            pf =Math.round(((basicWages + daWages) * 0.12)*10000)/10000;
-        }
-
-        const esic = Number((totalWages * 0.0075).toFixed());
-
-        let pt = 0
-        if(totalWages <= 7500) {
-            pt = (0);
-        } else if (7500 < totalWages && totalWages <= 10000){
-            pt = (1750);
-        }
-        else {
-            pt = (200);
-        }
-
-        
-        // switch(month){
-        //     case "Jan":
-        //         setAdv(worker.monthlyReport.Jan.adv);
-        //         setLwf(worker.monthlyReport.Jan.lwf);
-        //         break;
-        //     case "Feb":
-        //         setAdv(worker.monthlyReport.Feb.adv);
-        //         setLwf(worker.monthlyReport.Feb.lwf);
-        //         break;
-        //     case "Mar":
-        //         setAdv(worker.monthlyReport.Mar.adv);
-        //         setLwf(worker.monthlyReport.Mar.lwf);
-        //         break;
-        //     case "Apr":
-        //         setAdv(worker.monthlyReport.Apr.adv);
-        //         setLwf(worker.monthlyReport.Apr.lwf);
-        //         break;
-        //     case "May":
-        //         setAdv(worker.monthlyReport.May.adv);
-        //         setLwf(worker.monthlyReport.May.lwf);
-        //         break;
-        //     case "Jun":
-        //         setAdv(worker.monthlyReport.Jun.adv);
-        //         setLwf(worker.monthlyReport.Jun.lwf);
-        //         break;
-        //     case "Jul":
-        //         setAdv(worker.monthlyReport.Jul.adv);
-        //         setLwf(worker.monthlyReport.Jul.lwf);
-        //         break;
-        //     case "Aug":
-        //         setAdv(worker.monthlyReport.Aug.adv);
-        //         setLwf(worker.monthlyReport.Aug.lwf);
-        //         break;
-        //     case "Sep":
-        //         setAdv(worker.monthlyReport.Sep.adv);
-        //         setLwf(worker.monthlyReport.Sep.lwf);
-        //         break;
-        //     case "Oct":
-        //         setAdv(worker.monthlyReport.Oct.adv);
-        //         setLwf(worker.monthlyReport.Oct.lwf);
-        //         break;
-        //     case "Nov":
-        //         setAdv(worker.monthlyReport.Nov.adv);
-        //         setLwf(worker.monthlyReport.Nov.lwf);
-        //         break;
-        //     case "Dec":
-        //         setAdv(worker.monthlyReport.Dec.adv);
-        //         setLwf(worker.monthlyReport.Dec.lwf);
-        //         break;
-        //     default:
-        //         break;
-            
-        // }
-
-        setAdv(0)
-        setLwf(0)
-
-
+    useEffect(() => {
         if (month==="Jan"){
-            await setAdv(worker.monthlyReport.Jan.adv);
-            console.log('working')
+            setAdv(worker.monthlyReport.Jan.adv);
+           
         }
         else if(month==="Feb"){
             setAdv(worker.monthlyReport.Feb.adv);
@@ -152,11 +66,39 @@ function Attendance({setTrig, worker}) {
             setAdv(worker.monthlyReport.Dec.adv);
             setLwf(12);
         }
+    }, [month])
 
-        // await axios.get(`https://rnl-workers-log.herokuapp.com/users/getJanAdv/${id}`)
-        //         .then(res => {console.log("adv lwf: ", res.data)})
-        //         .catch(err => {console.log(err)})
+  
 
+    async function handleSave() {
+
+        const basicWages = Number(pdaysRef.current.value) * worker.wagesRate;
+        const daWages = Number(pdaysRef.current.value) * worker.daRate;
+        const otAmt = Number(otRef.current.value) * worker.otRate;
+        const hra = Number(((basicWages + daWages) * 0.05).toFixed());
+        const totalWages = Number((basicWages + daWages + otAmt + hra).toFixed());
+        
+        let pf=0;
+        if((basicWages + daWages) > 15000) {
+            pf = (1800);
+        }else {
+            pf =Math.round(((basicWages + daWages) * 0.12)*10000)/10000;
+        }
+
+        const esic = Number((totalWages * 0.0075).toFixed());
+
+        let pt = 0
+        if(totalWages <= 7500) {
+            pt = (0);
+        } else if (7500 < totalWages && totalWages <= 10000){
+            pt = (1750);
+        }
+        else {
+            pt = (200);
+        }
+
+             
+        
 
         const totDeduction = pf + esic + pt + adv + lwf;
 
