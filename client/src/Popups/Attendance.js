@@ -109,6 +109,9 @@ function Attendance({setTrig, worker}) {
             
         // }
 
+        setAdv(0)
+        setLwf(0)
+
 
         if (month==="Jan"){
             await setAdv(worker.monthlyReport.Jan.adv);
