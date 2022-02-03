@@ -617,9 +617,11 @@ router.post('/updatePdetails/:id', auth, (req, res) => {
   });
 
 
+
+  
  router.get('/getJanAdvLwf/:id', auth, (req, res) => {
    User.findById(req.params.id)
-   .then(user => res.json(user.monthlyReport.Jan.adv, user.monthlyReport.Jan.lwf))
+   .then(user => res.json(user.monthlyReport.Jan.adv))
    .catch(err => res.status(400).json('Errors: ' + err));
  })
 
