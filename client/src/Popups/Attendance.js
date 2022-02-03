@@ -160,6 +160,7 @@ function Attendance({setTrig, worker}) {
         const fPay = Number((totalWages - totDeduction).toFixed());
 
         console.log("adv: ", adv)
+        console.log("lwf: ", lwf)
         console.log("worker: ", worker)
 
         const reportData = {
