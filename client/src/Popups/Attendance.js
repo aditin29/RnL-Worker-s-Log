@@ -10,6 +10,9 @@ function Attendance({setTrig, worker}) {
     const [addSuccess, setAddSuccess] = useState(false); 
     const [error, setError] = useState('');
     const [errAlert, setErrAlert] = useState(false);
+    const [adv, setAdv] = useState(0);
+    const [lwf, setLwf] = useState(0);
+    
 
 
     const [month, setMonth] = useState('Jan');
@@ -51,56 +54,55 @@ function Attendance({setTrig, worker}) {
             pt = (200);
         }
 
-        let adv =0;
-        let lwf =0;
+        
         switch(month){
             case "Jan":
-                adv=worker.monthlyReport.Jan.adv;
-                lwf=worker.monthlyReport.Jan.lwf;
+                setAdv(worker.monthlyReport.Jan.adv);
+                setLwf(worker.monthlyReport.Jan.lwf);
                 break;
             case "Feb":
-                adv=worker.monthlyReport.Feb.adv;
-                lwf=worker.monthlyReport.Feb.lwf;
+                setAdv(worker.monthlyReport.Feb.adv);
+                setLwf(worker.monthlyReport.Feb.lwf);
                 break;
             case "Mar":
-                adv=worker.monthlyReport.Mar.adv;
-                lwf=worker.monthlyReport.Mar.lwf;
+                setAdv(worker.monthlyReport.Mar.adv);
+                setLwf(worker.monthlyReport.Mar.lwf);
                 break;
             case "Apr":
-                adv=worker.monthlyReport.Apr.adv;
-                lwf=worker.monthlyReport.Apr.lwf;
+                setAdv(worker.monthlyReport.Apr.adv);
+                setLwf(worker.monthlyReport.Apr.lwf);
                 break;
             case "May":
-                adv=worker.monthlyReport.May.adv;
-                lwf=worker.monthlyReport.May.lwf;
+                setAdv(worker.monthlyReport.May.adv);
+                setLwf(worker.monthlyReport.May.lwf);
                 break;
             case "Jun":
-                adv=worker.monthlyReport.Jun.adv;
-                lwf=worker.monthlyReport.Jun.lwf;
+                setAdv(worker.monthlyReport.Jun.adv);
+                setLwf(worker.monthlyReport.Jun.lwf);
                 break;
             case "Jul":
-                adv=worker.monthlyReport.Jul.adv;
-                lwf=worker.monthlyReport.Jul.lwf;
+                setAdv(worker.monthlyReport.Jul.adv);
+                setLwf(worker.monthlyReport.Jul.lwf);
                 break;
             case "Aug":
-                adv=worker.monthlyReport.Aug.adv;
-                lwf=worker.monthlyReport.Aug.lwf;
+                setAdv(worker.monthlyReport.Aug.adv);
+                setLwf(worker.monthlyReport.Aug.lwf);
                 break;
             case "Sep":
-                adv=worker.monthlyReport.Sep.adv;
-                lwf=worker.monthlyReport.Sep.lwf;
+                setAdv(worker.monthlyReport.Sep.adv);
+                setLwf(worker.monthlyReport.Sep.lwf);
                 break;
             case "Oct":
-                adv=worker.monthlyReport.Oct.adv;
-                lwf=worker.monthlyReport.Oct.lwf;
+                setAdv(worker.monthlyReport.Oct.adv);
+                setLwf(worker.monthlyReport.Oct.lwf);
                 break;
             case "Nov":
-                adv=worker.monthlyReport.Nov.adv;
-                lwf=worker.monthlyReport.Nov.lwf;
+                setAdv(worker.monthlyReport.Nov.adv);
+                setLwf(worker.monthlyReport.Nov.lwf);
                 break;
             case "Dec":
-                adv=worker.monthlyReport.Dec.adv;
-                lwf=worker.monthlyReport.Dec.lwf;
+                setAdv(worker.monthlyReport.Dec.adv);
+                setLwf(worker.monthlyReport.Dec.lwf);
                 break;
             default:
                 break;
@@ -112,7 +114,8 @@ function Attendance({setTrig, worker}) {
 
         const fPay = Number((totalWages - totDeduction).toFixed());
 
-        console.log(adv)
+        console.log("adv: ", adv)
+        console.log("worker: ", worker)
 
         const reportData = {
 	
