@@ -111,7 +111,7 @@ function Attendance({setTrig, worker}) {
 
 
         if (month==="Jan"){
-            setAdv(worker.monthlyReport.Jan.adv);
+            await setAdv(worker.monthlyReport.Jan.adv);
             console.log('working')
         }
         else if(month==="Feb"){
