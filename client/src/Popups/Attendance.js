@@ -110,7 +110,7 @@ function Attendance({setTrig, worker}) {
         // }
 
         await axios.get(`https://rnl-workers-log.herokuapp.com/users/getJanAdv/${id}`)
-                .then(res => console.log("adv lwf: ", res.data))
+                .then(res => {console.log("adv lwf: ", res.data)})
                 .catch(err => {console.log(err)})
 
 
