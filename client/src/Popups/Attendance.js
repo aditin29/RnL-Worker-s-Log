@@ -55,59 +55,63 @@ function Attendance({setTrig, worker}) {
         }
 
         
-        switch(month){
-            case "Jan":
-                setAdv(worker.monthlyReport.Jan.adv);
-                setLwf(worker.monthlyReport.Jan.lwf);
-                break;
-            case "Feb":
-                setAdv(worker.monthlyReport.Feb.adv);
-                setLwf(worker.monthlyReport.Feb.lwf);
-                break;
-            case "Mar":
-                setAdv(worker.monthlyReport.Mar.adv);
-                setLwf(worker.monthlyReport.Mar.lwf);
-                break;
-            case "Apr":
-                setAdv(worker.monthlyReport.Apr.adv);
-                setLwf(worker.monthlyReport.Apr.lwf);
-                break;
-            case "May":
-                setAdv(worker.monthlyReport.May.adv);
-                setLwf(worker.monthlyReport.May.lwf);
-                break;
-            case "Jun":
-                setAdv(worker.monthlyReport.Jun.adv);
-                setLwf(worker.monthlyReport.Jun.lwf);
-                break;
-            case "Jul":
-                setAdv(worker.monthlyReport.Jul.adv);
-                setLwf(worker.monthlyReport.Jul.lwf);
-                break;
-            case "Aug":
-                setAdv(worker.monthlyReport.Aug.adv);
-                setLwf(worker.monthlyReport.Aug.lwf);
-                break;
-            case "Sep":
-                setAdv(worker.monthlyReport.Sep.adv);
-                setLwf(worker.monthlyReport.Sep.lwf);
-                break;
-            case "Oct":
-                setAdv(worker.monthlyReport.Oct.adv);
-                setLwf(worker.monthlyReport.Oct.lwf);
-                break;
-            case "Nov":
-                setAdv(worker.monthlyReport.Nov.adv);
-                setLwf(worker.monthlyReport.Nov.lwf);
-                break;
-            case "Dec":
-                setAdv(worker.monthlyReport.Dec.adv);
-                setLwf(worker.monthlyReport.Dec.lwf);
-                break;
-            default:
-                break;
+        // switch(month){
+        //     case "Jan":
+        //         setAdv(worker.monthlyReport.Jan.adv);
+        //         setLwf(worker.monthlyReport.Jan.lwf);
+        //         break;
+        //     case "Feb":
+        //         setAdv(worker.monthlyReport.Feb.adv);
+        //         setLwf(worker.monthlyReport.Feb.lwf);
+        //         break;
+        //     case "Mar":
+        //         setAdv(worker.monthlyReport.Mar.adv);
+        //         setLwf(worker.monthlyReport.Mar.lwf);
+        //         break;
+        //     case "Apr":
+        //         setAdv(worker.monthlyReport.Apr.adv);
+        //         setLwf(worker.monthlyReport.Apr.lwf);
+        //         break;
+        //     case "May":
+        //         setAdv(worker.monthlyReport.May.adv);
+        //         setLwf(worker.monthlyReport.May.lwf);
+        //         break;
+        //     case "Jun":
+        //         setAdv(worker.monthlyReport.Jun.adv);
+        //         setLwf(worker.monthlyReport.Jun.lwf);
+        //         break;
+        //     case "Jul":
+        //         setAdv(worker.monthlyReport.Jul.adv);
+        //         setLwf(worker.monthlyReport.Jul.lwf);
+        //         break;
+        //     case "Aug":
+        //         setAdv(worker.monthlyReport.Aug.adv);
+        //         setLwf(worker.monthlyReport.Aug.lwf);
+        //         break;
+        //     case "Sep":
+        //         setAdv(worker.monthlyReport.Sep.adv);
+        //         setLwf(worker.monthlyReport.Sep.lwf);
+        //         break;
+        //     case "Oct":
+        //         setAdv(worker.monthlyReport.Oct.adv);
+        //         setLwf(worker.monthlyReport.Oct.lwf);
+        //         break;
+        //     case "Nov":
+        //         setAdv(worker.monthlyReport.Nov.adv);
+        //         setLwf(worker.monthlyReport.Nov.lwf);
+        //         break;
+        //     case "Dec":
+        //         setAdv(worker.monthlyReport.Dec.adv);
+        //         setLwf(worker.monthlyReport.Dec.lwf);
+        //         break;
+        //     default:
+        //         break;
             
-        }
+        // }
+
+        await axios.get(`https://rnl-workers-log.herokuapp.com/users/getJanAdv/${id}`)
+                .then(res => console.log("adv lwf: ", res.data))
+                .catch(err => {console.log(err)})
 
 
         const totDeduction = pf + esic + pt + adv + lwf;
@@ -115,6 +119,7 @@ function Attendance({setTrig, worker}) {
         const fPay = Number((totalWages - totDeduction).toFixed());
 
         console.log("adv: ", adv)
+        console.log("jan: ", worker.monthlyReport.Jan.adv)
         console.log("worker: ", worker)
 
         const reportData = {
